@@ -14,7 +14,7 @@ so your generated code will stay neat.
 ## Understanding The Problem
 
 In common template engine such as Blade, Twig, etc. They will render your view file
-like PHP code below:
+into PHP code below:
 
 ```
 <div>
@@ -74,7 +74,7 @@ When we render that stub with `$a = [1,2,3]`, the result would looks like this:
 </div>
 ```
 
-Then everybody happy :D
+Now everybody happy :D
 
 ## STATUS
 
