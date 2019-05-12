@@ -80,7 +80,7 @@ Now everybody happy :D
 
 #### Include
 
-We also handle include function to keep indentation in our code.
+We also handle include function to keep indentation relative to the definition.
 For example you have 2 stub files like below:
 
 `main.js.stub`
