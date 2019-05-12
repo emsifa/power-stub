@@ -11,7 +11,7 @@ but also support control statement (`if-elseif-else-endif`), looping (`foreach-e
 It is like _template engine_ who also keep your indentation in the right place,
 so your generated code will stay neat.
 
-## The Problem
+## Understanding The Problem
 
 In common template engine such as Blade, Twig, etc. They will render your view file
 like PHP code below:
@@ -26,7 +26,7 @@ like PHP code below:
 </div>
 ```
 
-When we render that file, the result will be messy like this:
+When we render that file with `$a = [1,2,3]`, the result will be messy like this:
 
 ```
 <div>
@@ -44,7 +44,7 @@ When we render that file, the result will be messy like this:
 
 It is OK, because template engine results are intended for browsers who don't care about indentation.
 
-But this is not acceptable if we want to make code generators.
+But this is not acceptable if we want to make code generator.
 
 So with Power Stub, our stub file would looks like this:
 
