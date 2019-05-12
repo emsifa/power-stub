@@ -1,0 +1,22 @@
+{
+    "name": "emsifa/power-stub",
+    "description": "Template engine that cares of indentation",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muhammad Syifa",
+            "email": "emsifa@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Emsifa\\PowerStub\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    }
+}
