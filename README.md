@@ -1,13 +1,13 @@
 POWER-STUB
 ==========
 
-Power Stub is a _stub engine_ that has control statements 
+Power Stub is a _stub engine_ that support control statements, looping 
 and several other features that make it easier for you to generate code from stub file.
 
 Stub file is a file that contains raw code with several parameters that will be replaced with certain text.
 
 We use term _stub engine_ because Power Stub not only able to replace parameter with given text,
-but also able to use control statement like `if-else-elseif-endif`, `foreach-endforeach`, `while-endwhile`, etc.
+but also support control statement like `if-else-elseif-endif`, `while-endwhile`, and looping (`foreach-endforeach`), etc.
 It is like _template engine_ who also keep your indentation in the right place,
 so your generated code will stay neat.
 
