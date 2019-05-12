@@ -1,5 +1,5 @@
 POWER-STUB
-=======================
+==========
 
 Power Stub is a _stub engine_ that has control statements 
 and several other features that make it easier for you to generate code from stub file.
@@ -76,6 +76,7 @@ When we render that stub with `$a = [1,2,3]`, the result would looks like this:
 
 Then everybody happy :D
 
-## USAGE
+## STATUS
 
-> WIP
+Power Stub still experimental. We have done some simple tests. 
+You can use it, but there will may be some breaking changes.
