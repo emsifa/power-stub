@@ -17,16 +17,16 @@ class CompilerTest extends TestCase
     public function testCompileEchoEndLine()
     {
         $template = implode("\r\n", [
-            '',
-            '[# $x #]',
-            ''
+            '    foo',
+            '    [# $x #]',
+            '    bar'
         ]);
 
         $compiled = Compiler::compileEcho($template, '[#', '#]');
 
         $expected = implode("\r\n", [
-            "",
-            "<?= \$x . \"\r\n\" ?>",
+            "    foo",
+            "    <?= \$x . \"\r\n\" ?>    bar",
         ]);
 
         $this->assertEquals($expected, $compiled);
@@ -51,7 +51,7 @@ class CompilerTest extends TestCase
             "    foo {",
             "        |# if(\$b > 10) #|",
             "        bar",
-            "        |# endif(\$b) #|",
+            "        |# endif #|",
             "    }",
             "    |# - endif #|",
             "    |# endforeach #|"

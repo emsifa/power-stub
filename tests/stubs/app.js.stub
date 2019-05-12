@@ -1,0 +1,15 @@
+var express = require('express');
+var app = express();
+
+|# foreach($routes as $i => $route) #|
+app.[# strtolower($route['method']) #]('[# $route['path'] #]', function(req, res) {
+    // do something with req and res
+    return res.send('OK');
+});
+|# - if(count($routes) - 1 === $i) #|
+|# - else #|
+
+|# - endif #|
+|# endforeach #|
+
+app.listen(8000);

@@ -40,8 +40,9 @@ class Compiler
         $opener = preg_quote($opener);
         $closer = preg_quote($closer);
         $template .= "\n"; // add \n to match replace when end code is block closing
-        $template = preg_replace("/ *{$opener} *-* *((foreach|if|elseif|else|while)[^\)]*\))(.*){$closer}(.*){$br}/", "<?php $1: ?>{$br}", $template);
-        $template = preg_replace("/ *{$opener} *-* *(endforeach|endif|endwhile)(.*){$closer}(.*){$br}/", "<?php $1; ?>{$br}", $template);
+        $template = preg_replace("/ *{$opener} (-* )?((foreach|if|elseif|while).*\)) {$closer}{$br}/", "<?php $2: ?>{$br}", $template);
+        $template = preg_replace("/ *{$opener} (-* )?((else)) {$closer}{$br}/", "<?php $2: ?>{$br}", $template);
+        $template = preg_replace("/ *{$opener} (-* )?(endforeach|endif|endwhile) {$closer}{$br}/", "<?php $2; ?>{$br}", $template);
         $template = substr($template, 0, -1); // remove added \n
         return $template;
     }

@@ -1,6 +1,6 @@
 {
     "name": "emsifa/power-stub",
-    "description": "Template engine that cares of indentation",
+    "description": "Stub engine that support control statements and looping without breaking your indentations.",
     "license": "MIT",
     "authors": [
         {
@@ -17,6 +17,6 @@
         "php": "^7.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8"
+        "phpunit/phpunit": "^7"
     }
 }
