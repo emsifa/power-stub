@@ -76,6 +76,56 @@ When we render that stub with `$a = [1,2,3]`, the result would looks like this:
 
 Now everybody happy :D
 
+## Other Features
+
+#### Include
+
+We also handle include function to keep indentation in our code.
+For example you have 2 stub files like below:
+
+`main.js.stub`
+
+```js
+import something from 'something';
+
+[# include("timeout.js", ['message' => 'first', 'delay' => 1000]) #]
+
+something.on('event', () => {
+    something.asyncStuff(() => {
+        // timeout 2 seconds
+        [# include("timeout.js", ['message' => 'second', 'delay' => 2000]) #]
+    });
+});
+
+```
+
+`timeout.js.stub`
+
+```js
+setTimeout(() => {
+    console.log("[# $message #]");
+}, [# $delay #]);
+```
+
+If we render `main.js.stub`, the result would looks like this:
+
+```js
+import something from 'something';
+
+setTimeout(() => {
+    console.log("first");
+}, 1000);
+
+something.on('event', () => {
+    something.asyncStuff(() => {
+        setTimeout(() => {
+            console.log("second");
+        }, 1000);
+    });
+});
+
+```
+
 ## STATUS
 
 Power Stub still experimental. We have done some simple tests. 
