@@ -22,7 +22,7 @@ like PHP code below:
     <p>
         lorem ipsum <?= $b ?>
     </p>
-    <?php endforeach ?>
+    <?php endforeach; ?>
 </div>
 ```
 
