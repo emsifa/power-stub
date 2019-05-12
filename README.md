@@ -118,6 +118,7 @@ setTimeout(() => {
 
 something.on('event', () => {
     something.asyncStuff(() => {
+        // timeout 2 seconds
         setTimeout(() => {
             console.log("second");
         }, 1000);
