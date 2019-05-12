@@ -7,7 +7,7 @@ and several other features that make it easier for you to generate code from stu
 Stub file is a file that contains raw code with several parameters that will be replaced with certain text.
 
 We use term _stub engine_ because Power Stub not only able to replace parameter with given text,
-but also support control statement like `if-else-elseif-endif`, `while-endwhile`, and looping (`foreach-endforeach`), etc.
+but also support control statement (`if-else-elseif-endif`), looping (`foreach-endforeach`, `while-endwhile`), etc.
 It is like _template engine_ who also keep your indentation in the right place,
 so your generated code will stay neat.
 
