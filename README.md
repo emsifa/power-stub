@@ -46,7 +46,7 @@ It is OK, because template engine results are intended for browsers who don't ca
 
 But this is not acceptable if we want to make code generators.
 
-So with Power Stub, our stub file would look like this:
+So with Power Stub, our stub file would looks like this:
 
 ```
 <div>
