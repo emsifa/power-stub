@@ -28,7 +28,7 @@ into PHP code below:
 
 When we render that file with `$a = [1,2,3]`, the result will be messy like this:
 
-```
+```html
 <div>
         <p>
         lorem ipsum 1
@@ -60,7 +60,7 @@ So with Power Stub, our stub file would looks like this:
 
 When we render that stub with `$a = [1,2,3]`, the result would looks like this:
 
-```
+```html
 <div>
     <p>
         lorem ipsum 1
@@ -85,7 +85,7 @@ For example you have 2 stub files like below:
 
 `main.js.stub`
 
-```js
+```
 import something from 'something';
 
 [# include("timeout.js", ['message' => 'first', 'delay' => 1000]) #]
@@ -101,7 +101,7 @@ something.on('event', () => {
 
 `timeout.js.stub`
 
-```js
+```
 setTimeout(() => {
     console.log("[# $message #]");
 }, [# $delay #]);
