@@ -130,7 +130,104 @@ something.on('event', () => {
 
 ```
 
-## STATUS
+## GETTING STARTED
 
-Power Stub still experimental. We have done some simple tests. 
-You can use it, but there will may be some breaking changes.
+> Power Stub still experimental. We have done some simple tests. 
+  You can use it, but there will may be some breaking changes.
+
+#### Requirements
+
+* PHP >= 7.1
+
+#### Installation
+
+Make directory where you want to place your code.
+
+Go to that directory using your cmd/terminal, and run composer command below:
+
+```
+composer require emsifa/power-stub:dev-master
+```
+
+#### Preparation
+
+Before we start using Power Stub, we need to make 2 directories.
+
+You can use commands below:
+
+* `mkdir stubs`
+* `mkdir compiled`
+
+#### Render
+
+First let's make our first stub.
+Create file `app.js.stub` inside our `stubs` directory.
+
+In this example we will create an express app stub containing dynamic routes.
+
+```
+const express = require('express');
+const app = express();
+
+|# foreach($routes as $r) #|
+app.[# strtolower($r['method']) #]('[# $r['path'] #]', function (req, res) {
+    return res.send('OK);
+});
+|# endforeach #|
+
+app.listen(3000);
+```
+
+Now let's create PHP script to render that stub.
+Create file named `render.php`.
+
+```php
+<?php
+
+require("vendor/autoload.php");
+
+$powerStub = new Factory(
+    __DIR__.'/stubs',       // our stubs directory
+    __DIR__.'/compiled',    // compiled directory
+    'stub'                  // extension (optional, default 'stub')
+);
+
+// Render app.js.stub
+$rendered = $powerStub->render("app.js", [
+    'routes' => [
+        [
+            'path' => '/',
+            'method' => 'GET',
+        ],
+        [
+            'path' => '/login',
+            'method' => 'POST',
+        ],
+        [
+            'path' => '/register',
+            'method' => 'POST',
+        ]
+    ]
+]);
+
+echo $rendered;
+```
+
+Now when you call `php render.php`, the output will looks like this:
+
+```
+const express = require('express');
+const app = express();
+
+app.get('/', function (req, res) {
+    return res.send('OK);
+});
+app.post('/login', function (req, res) {
+    return res.send('OK);
+});
+app.register('/register', function (req, res) {
+    return res.send('OK);
+});
+
+app.listen(3000);
+```
