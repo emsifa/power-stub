@@ -1,5 +1,7 @@
 <?php
 
+namespace Emsifa\PowerStub\Tests;
+
 use PHPUnit\Framework\TestCase;
 use Emsifa\PowerStub\Compiler;
 
@@ -108,5 +110,4 @@ class CompilerTest extends TestCase
 
         $this->assertEquals($expected, $escaped);
     }
-
 }

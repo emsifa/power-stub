@@ -1,5 +1,7 @@
 <?php
 
+namespace Emsifa\PowerStub\Tests;
+
 use PHPUnit\Framework\TestCase;
 use Emsifa\PowerStub\Compiler;
 use Emsifa\PowerStub\Factory;
@@ -45,7 +47,7 @@ class FactoryTest extends TestCase
         ]);
         $this->assertEquals($view->getPath(), __DIR__.'/stubs/hello.stub');
     }
-    
+
     public function testRender()
     {
         $rendered = $this->factory->render('app.js', [
@@ -111,13 +113,13 @@ class FactoryTest extends TestCase
             "        }, 2000);",
             "    });",
             "});",
-        ], $rendered);   
+        ], $rendered);
     }
 
     public function testPhpCodeShouldNotRendered()
     {
         $rendered = $this->factory->render('page.php', ['displayStuff' => true]);
-        
+
         $this->assertRendered([
             "Hello <?= \$name ?>",
             "",
@@ -134,5 +136,4 @@ class FactoryTest extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
-
 }
