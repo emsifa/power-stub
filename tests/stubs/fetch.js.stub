@@ -1,0 +1,3 @@
+fetch('something').then(() => {
+    console.log("[# $message #]");
+});

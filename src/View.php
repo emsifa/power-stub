@@ -60,7 +60,7 @@ class View
     public function put($view, array $data = [], $baseIndent = "")
     {
         $view = $this->factory->make($view, $data, [
-            'baseIndent' => $this->options['baseIndent'].$baseIndent
+            'baseIndent' => $baseIndent
         ]);
 
         return $view->render().$this->getLineBreak();
