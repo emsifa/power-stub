@@ -1,0 +1,7 @@
+Hello <?= $name ?>
+
+<?php foreach($a as $b): ?>
+    |# if($displayStuff) #|
+    <h1>Stuff</h1>
+    |# endif #|
+<?php endforeach; ?>

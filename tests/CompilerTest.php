@@ -91,4 +91,22 @@ class CompilerTest extends TestCase
         $this->assertEquals($expected, $compiled);
     }
 
+    public function testEscapePHP()
+    {
+        $template = implode("\n", [
+            "<?php echo 'foo' ?>",
+            "",
+            "<?= 'foo' ?>",
+        ]);
+
+        $escaped = Compiler::escapePHP($template);
+        $expected = implode("\n", [
+            "<?= '<' ?>?php echo 'foo' <?= '?' ?>>",
+            "",
+            "<?= '<' ?>?= 'foo' <?= '?' ?>>",
+        ]);
+
+        $this->assertEquals($expected, $escaped);
+    }
+
 }

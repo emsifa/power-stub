@@ -16,17 +16,21 @@ class Compiler
             'baseIndent' => "",
         ], $options);
 
+        $template = static::escapePHP($template);
+        
         $template = static::compileBlock(
             $template, 
             $options['opener'],
             $options['closer'],
             $options['lineBreak']
         );
+
         $template = static::compileInclude(
             $template,
             $options['echoOpener'],
             $options['echoCloser']
         );
+
         $template = static::compileEcho($template, $options['echoOpener'], $options['echoCloser']);
         return $template;
     }
@@ -74,6 +78,19 @@ class Compiler
         $firstLine = explode("\n", $template)[0]."\n";
         preg_match("/\r?\n$/", $firstLine, $match);
         return $match[0];
+    }
+
+    public static function escapePHP(string $template)
+    {
+        $template = str_replace("<?php", "{[PHP_OPEN]}", $template);
+        $template = str_replace("<?=", "{[PHP_ECHO_OPEN]}", $template);
+        $template = str_replace("?>", "{[PHP_CLOSE]}", $template);
+
+        $template = str_replace("{[PHP_OPEN]}", "<?= '<' ?>?php", $template);
+        $template = str_replace("{[PHP_ECHO_OPEN]}", "<?= '<' ?>?=", $template);
+        $template = str_replace("{[PHP_CLOSE]}", "<?= '?' ?>>", $template);
+
+        return $template;
     }
 
 }

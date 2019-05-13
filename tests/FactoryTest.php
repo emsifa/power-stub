@@ -65,7 +65,7 @@ class FactoryTest extends TestCase
             ]
         ]);
 
-        $this->expectRender([
+        $this->assertRendered([
             "var express = require('express');",
             "var app = express();",
             "",
@@ -92,7 +92,7 @@ class FactoryTest extends TestCase
     {
         $rendered = $this->factory->render('main.js');
 
-        $this->expectRender([
+        $this->assertRendered([
             "import something from 'something';",
             "",
             "setTimeout(() => {",
@@ -114,7 +114,20 @@ class FactoryTest extends TestCase
         ], $rendered);   
     }
 
-    protected function expectRender(array $lines, string $actual, string $br = "\r\n")
+    public function testPhpCodeShouldNotRendered()
+    {
+        $rendered = $this->factory->render('page.php', ['displayStuff' => true]);
+        
+        $this->assertRendered([
+            "Hello <?= \$name ?>",
+            "",
+            "<?php foreach(\$a as \$b): ?>",
+            "    <h1>Stuff</h1>",
+            "<?php endforeach; ?>",
+        ], $rendered);
+    }
+
+    protected function assertRendered(array $lines, string $actual, string $br = "\r\n")
     {
         $expected = implode("\n", $lines);
         $actual = str_replace($br, "\n", $actual);
