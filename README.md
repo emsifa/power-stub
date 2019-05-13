@@ -1,6 +1,9 @@
 POWER STUB
 ==========
 
+[![Build Status](https://travis-ci.org/emsifa/power-stub.svg?branch=master)](https://travis-ci.org/emsifa/power-stub)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 Power Stub is a _stub engine_ that support control statements, looping 
 and several other features that make it easier for you to generate code from stub file.
 
