@@ -171,7 +171,7 @@ const app = express();
 
 |# foreach($routes as $r) #|
 app.[# strtolower($r['method']) #]('[# $r['path'] #]', function (req, res) {
-    return res.send('OK);
+    return res.send('OK');
 });
 |# endforeach #|
 
@@ -220,13 +220,13 @@ const express = require('express');
 const app = express();
 
 app.get('/', function (req, res) {
-    return res.send('OK);
+    return res.send('OK');
 });
 app.post('/login', function (req, res) {
-    return res.send('OK);
+    return res.send('OK');
 });
 app.register('/register', function (req, res) {
-    return res.send('OK);
+    return res.send('OK');
 });
 
 app.listen(3000);
