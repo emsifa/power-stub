@@ -88,6 +88,28 @@ class FactoryTest extends TestCase
         ], $rendered);
     }
 
+    public function testRenderInclude()
+    {
+        $rendered = $this->factory->render('main.js');
+
+        $this->expectRender([
+            "import something from 'something';",
+            "",
+            "setTimeout(() => {",
+            "    console.log(\"first\");",
+            "}, 1000);",
+            "",
+            "something.on('event', () => {",
+            "    something.asyncStuff(() => {",
+            "        // timeout 2 seconds",
+            "        setTimeout(() => {",
+            "            console.log(\"second\");",
+            "        }, 2000);",
+            "    });",
+            "});",
+        ], $rendered);   
+    }
+
     protected function expectRender(array $lines, string $actual, string $br = "\r\n")
     {
         $expected = implode("\n", $lines);

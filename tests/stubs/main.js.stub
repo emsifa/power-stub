@@ -1,0 +1,10 @@
+import something from 'something';
+
+[# include("timeout.js", ['message' => 'first', 'delay' => 1000]) #]
+
+something.on('event', () => {
+    something.asyncStuff(() => {
+        // timeout 2 seconds
+        [# include("timeout.js", ['message' => 'second', 'delay' => 2000]) #]
+    });
+});

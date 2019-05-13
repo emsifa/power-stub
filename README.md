@@ -1,4 +1,4 @@
-POWER-STUB
+POWER STUB
 ==========
 
 Power Stub is a _stub engine_ that support control statements, looping 
