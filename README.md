@@ -215,7 +215,7 @@ echo $rendered;
 
 Now when you call `php render.php`, the output will looks like this:
 
-```
+```js
 const express = require('express');
 const app = express();
 
