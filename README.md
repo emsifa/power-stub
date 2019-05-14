@@ -124,7 +124,7 @@ something.on('event', () => {
         // timeout 2 seconds
         setTimeout(() => {
             console.log("second");
-        }, 1000);
+        }, 2000);
     });
 });
 
